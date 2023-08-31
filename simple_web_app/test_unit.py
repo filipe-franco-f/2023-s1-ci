@@ -67,3 +67,26 @@ def test_8_chars_with_no_upper_case_password_should_raise_exception():
     with pytest.raises(Exception):  # then
         # when
         validator.password_validate()
+
+
+def test_with_invalid_character1_should_raise_exception():
+    # given
+    validator = PasswordValidator(content="c@abC@a1/")
+    with pytest.raises(Exception):  # then
+        # when
+        validator.password_validate()
+
+    
+def test_with_invalid_character2_should_raise_exception():
+    # given
+    validator = PasswordValidator(content="c@abC@a1~")
+    with pytest.raises(Exception):  # then
+        # when
+        validator.password_validate()
+
+def test_with_invalid_character3_should_raise_exception():
+    # given
+    validator = PasswordValidator(content="c@abC@a1^")
+    with pytest.raises(Exception):  # then
+        # when
+        validator.password_validate()
